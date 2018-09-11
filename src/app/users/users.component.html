@@ -1,0 +1,40 @@
+
+
+<div *ngIf="users ; else loading">
+  <table>
+    <tr>
+      <th>ID</th>  
+      <th>Name</th>  
+      <th>Surname</th>  
+      <th>Birthdate</th>  
+      <th>Phone</th>  
+      <th>City</th>  
+      <th>Street</th>  
+      <th>Number</th> 
+      <th></th>
+      <th></th>
+
+    </tr>
+    <tr *ngFor=" let user of users['names'];index as i">
+      
+    <td>{{user?.id}}</td>  
+    <td>{{user?.name}}</td>  
+    <td>{{user?.surname}}</td>  
+    <td>{{user?.birthdate}}</td>  
+    <td>{{user?.phone}}</td>  
+    <td>{{user?.city}}</td>  
+    <td>{{user?.street}}</td>
+    <td>{{user?.number}}</td>   
+    <td>
+      <button (click)="edit(user)">Edit</button>
+    </td>
+    <td>
+        <button (click)="delete(i)">Delete</button>
+
+    </td> 
+
+    </tr>
+    </table>
+    </div>
+    <ng-template #loading>Loading User Data...</ng-template>
+
