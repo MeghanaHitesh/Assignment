@@ -17,7 +17,7 @@ export class AddComponent implements OnInit {
       id: ['', Validators.required],
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      birthdate: ['', Validators.required],
+      birthDate: ['', Validators.required],
       phone: ['', Validators.required],
       city: ['', Validators.required],
       street: ['', Validators.required],
