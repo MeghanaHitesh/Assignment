@@ -3,7 +3,7 @@
   <div class="container">
       <div class="row">
           <div class="col-md-6 offset-md-3">
-              <h2>Angular 6 Reactive Form Validation</h2>
+              <h2>EDIT ENTRY</h2>
               <form [formGroup]="usersForm" (ngSubmit)="onSubmit()">
                   <div class="form-group">
                       <label>ID :</label>
@@ -29,9 +29,9 @@
                   </div>
                   <div class="form-group">
                       <label>Birthdate :</label>
-                      <input type="text" formControlName="birthdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }" />
-                      <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
-                          <div *ngIf="f.birthdate.errors.required">Birthdate is required</div>
+                      <input type="text" formControlName="birthDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" />
+                      <div *ngIf="submitted && f.birthDate.errors" class="invalid-feedback">
+                          <div *ngIf="f.birthDate.errors.required">Birthdate is required</div>
                       </div>
                   </div>
                   <div class="form-group">
