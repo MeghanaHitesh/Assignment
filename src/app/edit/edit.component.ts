@@ -9,21 +9,35 @@ import { CommonService } from '../shared/common-service';
 })
 export class EditComponent implements OnInit {
   usersForm:FormGroup;
+  users;
   submitted = false;
+  selectedID;
   constructor(private formBuilder: FormBuilder,private route:Router,private commonService:CommonService) { }
 
   ngOnInit() {
+   
+    
     this.usersForm = this.formBuilder.group({
       id: ['', Validators.required],
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      birthdate: ['', Validators.required],
+      birthDate: ['', Validators.required],
       phone: ['', Validators.required],
       city: ['', Validators.required],
       street: ['', Validators.required],
       number: ['', Validators.required]
       
   });
+
+     
+     var retrievedObject = localStorage.getItem('userEdited');
+
+      let data = JSON.parse(retrievedObject);
+   console.log("Edit data:",data);
+   this.selectedID = data.id;
+ 
+      this.usersForm.setValue(data);
+
   }
 
   get f() { return this.usersForm.controls; }
@@ -36,7 +50,7 @@ export class EditComponent implements OnInit {
     }
     else{
 
-      this.commonService.sendUser(this.usersForm.value);
+      this.commonService.editUser(this.usersForm.value,this.selectedID);
       this.route.navigate(["/users"]);
     }
   }
