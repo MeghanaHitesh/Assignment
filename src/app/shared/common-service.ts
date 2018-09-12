@@ -30,9 +30,11 @@ export class CommonService{
      //return this.subject2.asObservable();
      // this.subject.next(user);
     }
-    editUser(index){
-       console.log("index :",index);
-      console.log("send user fn",this.users);
+    editUser(userSelected,id){
+     let pos = this.users.names.map(function(e) { return e.id; }).indexOf(id);
+      
+      this.users.names.splice(pos,1,userSelected);
+
     this.subject2.next(this.users);
     }
   
